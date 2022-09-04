@@ -16,7 +16,7 @@ function removeContainer (rowsize) {
     let rowID = container.querySelectorAll('.row')
     
     for (let i = 0; i < rowsize; i++) {
-        rowID[i].parentElement.removeChild(rowID[i])
+        rowID[i].parentNode.removeChild(rowID[i])
     }
 }
 
