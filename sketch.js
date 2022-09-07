@@ -1,5 +1,7 @@
 let container = document.querySelector('.container')
 let button = document.querySelector('#grid-btn')
+let defaultButtonSize = 300;
+
 
 let initialSize = 16
 let size;
@@ -17,8 +19,11 @@ function removeContainer (rowsize) {
     
     for (let i = 0; i < rowsize; i++) {
         rowID[i].parentNode.removeChild(rowID[i])
+        // https://stackoverflow.com/questions/4777077/removing-elements-by-class-name
     }
 }
+
+
 
 
 function gridSize (size) {
@@ -26,10 +31,12 @@ function gridSize (size) {
         const row = document.createElement('div');
         row.classList.add('row')
         container.appendChild(row)
-        
         for (let j = 0; j < size; j++) {
             const grid = document.createElement('div');
             grid.classList.add('grid')
+            squareSize = (defaultButtonSize/size);
+            grid.style.width = squareSize + "px";
+            grid.style.height = squareSize + "px";
             grid.addEventListener("mouseover", function() {
                 grid.style.backgroundColor = 'aqua';
             })
