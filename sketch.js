@@ -1,7 +1,6 @@
 let container = document.querySelector('.container')
 let button = document.querySelector('#grid-btn')
-let defaultButtonSize = 300;
-
+let defaultButtonSize = 960;
 
 let initialSize = 16
 let size;
@@ -27,6 +26,7 @@ function removeContainer (rowsize) {
 
 
 function gridSize (size) {
+    let squareSize = (defaultButtonSize/size);
     for (let i = 0; i < size; i++) {
         const row = document.createElement('div');
         row.classList.add('row')
@@ -34,7 +34,6 @@ function gridSize (size) {
         for (let j = 0; j < size; j++) {
             const grid = document.createElement('div');
             grid.classList.add('grid')
-            squareSize = (defaultButtonSize/size);
             grid.style.width = squareSize + "px";
             grid.style.height = squareSize + "px";
             grid.addEventListener("mouseover", function() {
@@ -43,6 +42,8 @@ function gridSize (size) {
             row.appendChild(grid)
         }
     }
+            
+            
 }
 gridSize (initialSize)
 
